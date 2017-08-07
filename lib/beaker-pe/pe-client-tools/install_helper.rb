@@ -63,7 +63,7 @@ module Beaker
               version = $2
               arch = $3
 
-              pattern = 'pl-%s-%s-%s-%s%s-%s.repo'
+              pattern = 'pl-%s-%s-repos-pe-%s-%s%s-%s.repo'
 
               repo_filename = pattern % [
                   package,

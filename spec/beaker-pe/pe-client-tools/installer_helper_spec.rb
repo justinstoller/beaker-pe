@@ -31,7 +31,7 @@ describe ClassPEClientToolsMixedWithPatterns do
       let(:platform) { Beaker::Platform.new('el-6-x86_64') }
       it 'installs' do
         hosts.each do |host|
-          allow(subject). to receive(:fetch_http_file).with("http://builds.delivery.puppetlabs.net/pe-client-tools/#{opts[:pe_client_tools_sha]}/repo_configs/rpm/", "pl-pe-client-tools-#{opts[:pe_client_tools_sha]}-el-6-x86_64.repo", "/tmp/repo_configs/el-6-x86_64")
+          allow(subject). to receive(:fetch_http_file).with("http://builds.delivery.puppetlabs.net/pe-client-tools/#{opts[:pe_client_tools_sha]}/repo_configs/rpm/", "pl-pe-client-tools-#{opts[:pe_client_tools_sha]}-repos-pe-el-6-x86_64.repo", "/tmp/repo_configs/el-6-x86_64")
           expect(host).to receive(:install_package).with("pe-client-tools")
 
           subject.install_pe_client_tools_on(host, opts)
@@ -40,7 +40,7 @@ describe ClassPEClientToolsMixedWithPatterns do
 
       it 'installs tag versions correctly' do
         hosts.each do |host|
-          allow(subject). to receive(:fetch_http_file).with("http://builds.delivery.puppetlabs.net/pe-client-tools/#{tag_opts[:pe_client_tools_version]}/repo_configs/rpm/", "pl-pe-client-tools-#{tag_opts[:pe_client_tools_version]}-el-6-x86_64.repo", "/tmp/repo_configs/el-6-x86_64")
+          allow(subject). to receive(:fetch_http_file).with("http://builds.delivery.puppetlabs.net/pe-client-tools/#{tag_opts[:pe_client_tools_version]}/repo_configs/rpm/", "pl-pe-client-tools-#{tag_opts[:pe_client_tools_version]}-repos-pe-el-6-x86_64.repo", "/tmp/repo_configs/el-6-x86_64")
           expect(host).to receive(:install_package).with("pe-client-tools")
 
           subject.install_pe_client_tools_on(host, tag_opts)
